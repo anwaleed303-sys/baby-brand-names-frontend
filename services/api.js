@@ -210,25 +210,31 @@ api.interceptors.response.use(
 export const apiService = {
   // Baby names - UPDATE: Remove /baby sub-path, use main /names endpoint
   generateBabyNames: async (formData) => {
-    const response = await api.post("/names", { ...formData, type: "baby" });
+    const response = await api.post("/api/names", {
+      ...formData,
+      type: "baby",
+    });
     return response.data;
   },
 
   // Brand names - UPDATE: Remove /brand sub-path, use main /names endpoint
   generateBrandNames: async (formData) => {
-    const response = await api.post("/names", { ...formData, type: "brand" });
+    const response = await api.post("/api/names", {
+      ...formData,
+      type: "brand",
+    });
     return response.data;
   },
 
   // Check domain availability - UPDATE: Use POST instead of GET for complex data
   checkDomainAvailability: async (domain) => {
-    const response = await api.post("/domain", { domain });
+    const response = await api.post("/api/domain", { domain });
     return response.data;
   },
 
   // Get name suggestions - UPDATE: Use POST method for better serverless compatibility
   getNameSuggestions: async (query, type) => {
-    const response = await api.post("/names", {
+    const response = await api.post("/api/names", {
       action: "suggestions",
       query,
       type,
@@ -238,7 +244,7 @@ export const apiService = {
 
   // Get name details - UPDATE: Use POST method
   getNameDetails: async (name, type) => {
-    const response = await api.post("/names", {
+    const response = await api.post("/api/names", {
       action: "details",
       name,
       type,
@@ -249,7 +255,7 @@ export const apiService = {
   // Analytics - WORKS AS IS
   trackNameGeneration: async (type, formData) => {
     try {
-      await api.post("/analytics", { type, formData });
+      await api.post("/api/analytics", { type, formData });
     } catch (error) {
       // Non-critical, don't throw
       console.warn("Analytics tracking failed:", error);
@@ -258,13 +264,13 @@ export const apiService = {
 
   // Feedback - WORKS AS IS
   submitFeedback: async (feedback) => {
-    const response = await api.post("/feedback", feedback);
+    const response = await api.post("/api/feedback", feedback);
     return response.data;
   },
 
   // NEW: Health check method for testing
   healthCheck: async () => {
-    const response = await api.get("/health");
+    const response = await api.get("/api/health");
     return response.data;
   },
 };
