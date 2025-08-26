@@ -134,7 +134,7 @@ import axios from "axios";
 
 // Update the API_BASE_URL for Vercel deployment
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+  process.env.NEXT_PUBLIC_API_URL || "baby-brand-names-backend.vercel.app";
 
 // Create axios instance with default config
 const api = axios.create({
