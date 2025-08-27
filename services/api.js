@@ -449,7 +449,7 @@
 import axios from "axios";
 
 // FIXED: Correct API base URL
-const API_BASE_URL = "https://baby-brand-names-backend.vercel.app";
+const API_BASE_URL = "https://baby-brand-names-backend.vercel.app/";
 
 // Create axios instance with improved config
 const api = axios.create({
