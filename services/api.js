@@ -713,16 +713,16 @@ export const apiService = {
   },
 
   // Analytics tracking (non-critical, don't throw on failure)
-  trackNameGeneration: async (type, formData) => {
-    try {
-      console.log("Tracking analytics for:", type);
+  // trackNameGeneration: async (type, formData) => {
+  //   try {
+  //     console.log("Tracking analytics for:", type);
 
-      await api.post("/api/analytics", { type, formData });
-    } catch (error) {
-      // Non-critical, just log
-      console.warn("Analytics tracking failed:", error.message);
-    }
-  },
+  //     await api.post("/api/analytics", { type, formData });
+  //   } catch (error) {
+  //     // Non-critical, just log
+  //     console.warn("Analytics tracking failed:", error.message);
+  //   }
+  // },
 
   // Health check
   healthCheck: async () => {
